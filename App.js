@@ -111,9 +111,11 @@ const App = () => {
         clicked={getCurrentWeather}
       />
       <CurrentWeather 
+        city={currentWeather.name}
         currentTemp={currentWeather.main.temp}
         icon={currentWeather.weather.icon}
         main={currentWeather.weather.main}
+        wind={currentWeather.wind.speed}
       />
     </ View>
   );
