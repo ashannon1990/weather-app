@@ -28,7 +28,8 @@ const apiKey = '76716531b6d7d100e1ea7db86d08928b'
 const styles = {
   body: {
     backgroundColor: '#61dafb',
-    height: '100%'
+    height: '100%',
+    alignItems: 'center'
   }
 }
 
@@ -77,15 +78,15 @@ const App = () => {
             icon: res.data.weather[0].icon
           },
           main: {
-            temp: res.data.main.temp,
-            feels_like: res.data.main.feels_like,
+            temp: res.data.main.temp.toFixed(),
+            feels_like: res.data.main.feels_like.toFixed(),
             temp_min: res.data.main.temp_min,
             temp_max: res.data.main.temp_min,
             pressure: res.data.main.pressure,
             humidity: res.data.main.humidity
           },
           wind: {
-            speed: res.data.wind.speed,
+            speed: res.data.wind.speed.toFixed(1),
             deg: res.data.wind.deg
           },
           clouds: {
