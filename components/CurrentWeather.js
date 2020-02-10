@@ -8,7 +8,7 @@ const styles = {
         alignItems: 'center',
     },
     headerText:{
-        fontSize: 20
+        fontSize: 25
     },
     currentMainDiv: {
         display: 'flex',
