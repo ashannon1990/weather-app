@@ -3,7 +3,7 @@ import { Button, View } from 'react-native'
 
 const GetWeather = (props) => {
     return (
-        <View style={{width: 200}}>
+        <View style={{width: 200, margin: 20}}>
             <Button
                 title="Get weather"
                 onPress={props.clicked}
