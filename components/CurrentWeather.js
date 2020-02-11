@@ -31,9 +31,6 @@ const styles = {
 const CurrentWeather = props => {
     return (
         <View>
-            <View style={styles.header}>
-                <Text style={styles.headerText}>Right now in {props.city}</Text>
-            </View>
             <View style={styles.currentMainDiv}>
                 <Text style={styles.currentTemp}>{props.currentTemp + '\u00B0'}</Text>
                 <View style={styles.iconAndDescript}>

@@ -14,12 +14,14 @@ import {
   View,
   Text,
   StatusBar,
+  Button
 } from 'react-native';
 
 import GetWeather from './components/GetWeather';
 import currentWeather from './components/CurrentWeather'
 import axios from 'axios';
 import CurrentWeather from './components/CurrentWeather';
+import SnarkyMessage from './components/SnarkyMessage';
 
 
 
@@ -36,6 +38,10 @@ const styles = {
 const App = () => {
 
   // state for current weather
+  const [location, setLocation] = useState({
+    lat: null,
+    long: null
+  })
   const [currentWeather, setCurrentWeather] = useState({
     weather: {
       main: '',
@@ -66,6 +72,14 @@ const App = () => {
     id: null,
     name: ''
   })
+
+  
+  const getLocation = () => {
+    geolocation.getCurrentPosition(position => {
+      console.log(position)
+      })
+    }
+  
 
   const getCurrentWeather = () => {
     axios.get('http://api.openweathermap.org/data/2.5/weather?q=Jacksonville&units=imperial&appid=' + apiKey) // API call to get current conditions
@@ -111,6 +125,11 @@ const App = () => {
       <GetWeather 
         clicked={getCurrentWeather}
       />
+      <SnarkyMessage />
+      <Button
+        title="get location"
+        onPress={getLocation}
+        />
       <CurrentWeather 
         city={currentWeather.name}
         currentTemp={currentWeather.main.temp}
