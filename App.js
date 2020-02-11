@@ -23,6 +23,7 @@ import currentWeather from './components/CurrentWeather'
 import axios from 'axios';
 import CurrentWeather from './components/CurrentWeather';
 import SnarkyMessage from './components/SnarkyMessage';
+import 'dotenv'
 
 async function requestLocationPermission() {
   try {
@@ -47,7 +48,7 @@ async function requestLocationPermission() {
 }
 
 
-const apiKey = '76716531b6d7d100e1ea7db86d08928b'
+const apiKey = process.env.APIKEY
 
 const styles = {
   body: {
