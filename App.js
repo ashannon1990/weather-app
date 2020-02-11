@@ -14,7 +14,8 @@ import {
   View,
   Text,
   StatusBar,
-  Button
+  Button,
+  PermissionsAndroid
 } from 'react-native';
 
 import GetWeather from './components/GetWeather';
@@ -23,6 +24,27 @@ import axios from 'axios';
 import CurrentWeather from './components/CurrentWeather';
 import SnarkyMessage from './components/SnarkyMessage';
 
+async function requestLocationPermission() {
+  try {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      {
+        title: 'Gimme your position',
+        message: "I get your location, or you don't get the weather",
+        buttonNeutral: "Later, nerd",
+        buttonNegative: 'No way!',
+        buttonPositive: 'Sounds fair',
+      },
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log("I know where you live");
+    } else {
+      console.log("You pansy")
+    }
+  } catch (err) {
+    console.warn(err)
+  }
+}
 
 
 const apiKey = '76716531b6d7d100e1ea7db86d08928b'
@@ -73,13 +95,13 @@ const App = () => {
     name: ''
   })
 
-  
-  const getLocation = () => {
-    geolocation.getCurrentPosition(position => {
-      console.log(position)
-      })
-    }
-  
+
+  // const getLocation = () => {
+  //   navigator.geolocation.getCurrentPosition(position => {
+  //     requestLocationPermission();
+  //   })
+  // }
+
 
   const getCurrentWeather = () => {
     axios.get('http://api.openweathermap.org/data/2.5/weather?q=Jacksonville&units=imperial&appid=' + apiKey) // API call to get current conditions
@@ -122,15 +144,15 @@ const App = () => {
 
   return (
     <View style={styles.body}>
-      <GetWeather 
+      <GetWeather
         clicked={getCurrentWeather}
       />
       <SnarkyMessage />
-      <Button
+      {/* <Button
         title="get location"
         onPress={getLocation}
-        />
-      <CurrentWeather 
+      /> */}
+      <CurrentWeather
         city={currentWeather.name}
         currentTemp={currentWeather.main.temp}
         icon={currentWeather.weather.icon}
