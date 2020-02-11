@@ -148,7 +148,7 @@ const App = () => {
         clicked={getCurrentWeather}
       />
       <SnarkyMessage 
-        getSnarky={currentWeather.weather.main}
+        currentCondition={currentWeather.weather.main}
       />
       {/* <Button
         title="get location"

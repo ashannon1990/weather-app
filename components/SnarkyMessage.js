@@ -2,8 +2,8 @@ import React from 'react';
 import { Text, View } from 'react-native'
 
 const SnarkyMessage = (props) => {
-        let snarky;
-        const getSnarky = (currentCondition) => {
+        let snarky = ''
+        let currentCondition = props.currentCondition;
         switch(currentCondition) {
             case 'Thunderstorm':
                 snarky = 'Ohhh, a thunderstorm. If your home, enjoy it. If your driving, sucks to be you.'
@@ -17,8 +17,8 @@ const SnarkyMessage = (props) => {
             case 'Snow':
                 snarky = 'Wait... this is Florida. Why the f*** is it snowing?!!!'
                 break;
-            case 'Mist' || 'Smoke' || 'Hazy' || 'Dust' || 'Sand' || 'Ash':
-                snarky = 'It\'s not that bad... just don\'t breath or anything'
+            case 'Mist':
+                snarky = 'It\'s not that bad out I guess... not good though'
                 break;
             case 'Squall':
                 snarky = 'WTF is a squall?'
@@ -33,12 +33,12 @@ const SnarkyMessage = (props) => {
                 snarky = 'Oh look, that one looks like a giraffe.'
             default:
                 'nothing going on I guess' 
-        }
+        
     }
     return (
         <View>
             <Text>
-                {getSnarky(props.currentCondition)}
+                {snarky}
             </Text>
         </View>
     );
