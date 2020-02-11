@@ -30,7 +30,7 @@ const SnarkyMessage = (props) => {
                 snarky = 'It\'s nice, but boring today.'
                 break;
             case 'Clouds':
-                snarky = 'Oh look, that one looks like a giraffe.'
+                snarky = 'Oh look, clouds. That one looks like a giraffe.'
             default:
                 'nothing going on I guess' 
         
