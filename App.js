@@ -19,36 +19,35 @@ import {
 } from 'react-native';
 
 import GetWeather from './components/GetWeather';
-import currentWeather from './components/CurrentWeather'
+import FiveDayForecast from './components/FiveDayForecast'
 import axios from 'axios';
 import CurrentWeather from './components/CurrentWeather';
 import SnarkyMessage from './components/SnarkyMessage';
-import 'dotenv'
 
-async function requestLocationPermission() {
-  try {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      {
-        title: 'Gimme your position',
-        message: "I get your location, or you don't get the weather",
-        buttonNeutral: "Later, nerd",
-        buttonNegative: 'No way!',
-        buttonPositive: 'Sounds fair',
-      },
-    );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log("I know where you live");
-    } else {
-      console.log("You pansy")
-    }
-  } catch (err) {
-    console.warn(err)
-  }
-}
+// async function requestLocationPermission() {
+//   try {
+//     const granted = await PermissionsAndroid.request(
+//       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+//       {
+//         title: 'Gimme your position',
+//         message: "I get your location, or you don't get the weather",
+//         buttonNeutral: "Not now",
+//         buttonNegative: 'No way!',
+//         buttonPositive: 'Sounds fair',
+//       },
+//     );
+//     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+//       console.log("I know where you live");
+//     } else {
+//       console.log("You pansy")
+//     }
+//   } catch (err) {
+//     console.warn(err)
+//   }
+// }
 
 
-const apiKey = process.env.APIKEY
+const apiKey = ''
 
 const styles = {
   body: {
@@ -97,6 +96,8 @@ const App = () => {
   })
 
 
+
+
   // const getLocation = () => {
   //   navigator.geolocation.getCurrentPosition(position => {
   //     requestLocationPermission();
@@ -118,7 +119,7 @@ const App = () => {
             temp: res.data.main.temp.toFixed(),
             feels_like: res.data.main.feels_like.toFixed(),
             temp_min: res.data.main.temp_min,
-            temp_max: res.data.main.temp_min,
+            temp_max: res.data.main.temp_max,
             pressure: res.data.main.pressure,
             humidity: res.data.main.humidity
           },
@@ -142,6 +143,13 @@ const App = () => {
       })
   }
 
+  const getFiveDay = () => {
+    axios.get('http://api.openweathermap.org/data/2.5/forecast?q=Jacksonville&units=imperial&cnt=5&appid=' + apiKey)
+    .then((res) => {
+      console.log(res.data)
+    })
+  }
+
 
   return (
     <View style={styles.body}>
@@ -151,16 +159,19 @@ const App = () => {
       <SnarkyMessage 
         currentCondition={currentWeather.weather.main}
       />
-      {/* <Button
-        title="get location"
-        onPress={getLocation}
-      /> */}
       <CurrentWeather
         city={currentWeather.name}
         currentTemp={currentWeather.main.temp}
         icon={currentWeather.weather.icon}
         main={currentWeather.weather.main}
         wind={currentWeather.wind.speed}
+      />
+      <FiveDayForecast 
+        icon={currentWeather.weather.icon}
+        day='Thursday'
+        condition={currentWeather.weather.main}
+        maxTemp={currentWeather.main.temp_max}
+        minTemp={currentWeather.main.temp_min}
       />
     </ View>
   );
