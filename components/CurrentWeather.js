@@ -34,16 +34,12 @@ const CurrentWeather = props => {
             <View style={styles.currentMainDiv}>
                 <Text style={styles.currentTemp}>{props.currentTemp + '\u00B0'}</Text>
                 <View style={styles.iconAndDescript}>
-                    <Image
-                        style={{ width: 80, height: 80 }}
-                        source={{ uri: 'http://openweathermap.org/img/wn/' + props.icon + '@2x.png' }}
-                    />
                     <Text>
-                        {props.main}
+                        {props.summary}
                     </Text>
                 </View>
                 <View>
-                    <Text style={styles.wind}>Wind: {props.wind} mph</Text>
+                    <Text style={styles.wind}>Wind: {props.windSpeed} mph</Text>
                 </View>
             </View>
         </View>
