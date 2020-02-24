@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -427,6 +427,10 @@ const App = () => {
       })
   }
 
+  useEffect(() => {
+    getWeather();
+  }, [])
+
 
   return (
     <View style={styles.body}>
@@ -444,6 +448,7 @@ const App = () => {
         windSpeed={weather.currentWeather.windSpeed}
       />
       {weather.dailyForecast.data.map((data, key) => {
+        if (data.tempMax != null) {
         return (
           <DailyForecast
             key={data.time}
@@ -453,7 +458,7 @@ const App = () => {
             minTemp={data.tempMin}
           />
         )
-      })}
+      }})}
     </ View>
   );
 };

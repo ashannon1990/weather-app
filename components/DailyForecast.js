@@ -21,6 +21,7 @@ const styles = {
     }
 }
 
+
 const FiveDayForecast = (props) => {
     return (
         <View style={styles.dailyForecast}>
