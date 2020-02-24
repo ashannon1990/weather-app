@@ -30,6 +30,7 @@ const apiKey = ''
 
 const styles = {
   body: {
+    padding: 10,
     backgroundColor: '#61dafb',
     height: '100%',
     alignItems: 'center'
@@ -243,7 +244,7 @@ const App = () => {
             icon: res.data.currently.icon,
             precipIntensity: res.data.currently.precipIntensity,
             precipProbability: res.data.currently.precipProbability,
-            temperature: res.data.currently.temperature,
+            temperature: res.data.currently.temperature.toFixed(),
             feelsLike: res.data.currently.apparentTemperature,
             dewPoint: res.data.currently.dewPoint,
             humidity: res.data.currently.humidity,
@@ -258,84 +259,84 @@ const App = () => {
               summary: res.data.hourly.data[0].summary,
               icon: res.data.hourly.data[0].icon,
               precipProbability: res.data.hourly.data[0].precipIntensity,
-              temperature: res.data.hourly.data[0].temperature
+              temperature: res.data.hourly.data[0].temperature.toFixed()
             },
             {
               time: res.data.hourly.data[1].time,
               summary: res.data.hourly.data[1].summary,
               icon: res.data.hourly.data[1].icon,
               precipProbability: res.data.hourly.data[1].precipIntensity,
-              temperature: res.data.hourly.data[1].temperature
+              temperature: res.data.hourly.data[1].temperature.toFixed()
             },
             {
               time: res.data.hourly.data[2].time,
               summary: res.data.hourly.data[2].summary,
               icon: res.data.hourly.data[2].icon,
               precipProbability: res.data.hourly.data[2].precipIntensity,
-              temperature: res.data.hourly.data[2].temperature
+              temperature: res.data.hourly.data[2].temperature.toFixed()
             },
             {
               time: res.data.hourly.data[3].time,
               summary: res.data.hourly.data[3].summary,
               icon: res.data.hourly.data[3].icon,
               precipProbability: res.data.hourly.data[3].precipIntensity,
-              temperature: res.data.hourly.data[3].temperature
+              temperature: res.data.hourly.data[3].temperature.toFixed()
             },
             {
               time: res.data.hourly.data[4].time,
               summary: res.data.hourly.data[4].summary,
               icon: res.data.hourly.data[4].icon,
               precipProbability: res.data.hourly.data[4].precipIntensity,
-              temperature: res.data.hourly.data[4].temperature
+              temperature: res.data.hourly.data[4].temperature.toFixed()
             },
             {
               time: res.data.hourly.data[5].time,
               summary: res.data.hourly.data[5].summary,
               icon: res.data.hourly.data[5].icon,
               precipProbability: res.data.hourly.data[5].precipIntensity,
-              temperature: res.data.hourly.data[5].temperature
+              temperature: res.data.hourly.data[5].temperature.toFixed()
             },
             {
               time: res.data.hourly.data[6].time,
               summary: res.data.hourly.data[6].summary,
               icon: res.data.hourly.data[6].icon,
               precipProbability: res.data.hourly.data[6].precipIntensity,
-              temperature: res.data.hourly.data[6].temperature
+              temperature: res.data.hourly.data[6].temperature.toFixed()
             },
             {
               time: res.data.hourly.data[7].time,
               summary: res.data.hourly.data[7].summary,
               icon: res.data.hourly.data[7].icon,
               precipProbability: res.data.hourly.data[7].precipIntensity,
-              temperature: res.data.hourly.data[7].temperature
+              temperature: res.data.hourly.data[7].temperature.toFixed()
             },
             {
               time: res.data.hourly.data[8].time,
               summary: res.data.hourly.data[8].summary,
               icon: res.data.hourly.data[8].icon,
               precipProbability: res.data.hourly.data[8].precipIntensity,
-              temperature: res.data.hourly.data[8].temperature
+              temperature: res.data.hourly.data[8].temperature.toFixed()
             },
             {
               time: res.data.hourly.data[9].time,
               summary: res.data.hourly.data[9].summary,
               icon: res.data.hourly.data[9].icon,
               precipProbability: res.data.hourly.data[9].precipIntensity,
-              temperature: res.data.hourly.data[9].temperature
+              temperature: res.data.hourly.data[9].temperature.toFixed()
             },
             {
               time: res.data.hourly.data[10].time,
               summary: res.data.hourly.data[10].summary,
               icon: res.data.hourly.data[10].icon,
               precipProbability: res.data.hourly.data[10].precipIntensity,
-              temperature: res.data.hourly.data[10].temperature
+              temperature: res.data.hourly.data[10].temperature.toFixed()
             },
             {
               time: res.data.hourly.data[11].time,
               summary: res.data.hourly.data[11].summary,
               icon: res.data.hourly.data[11].icon,
               precipProbability: res.data.hourly.data[11].precipIntensity,
-              temperature: res.data.hourly.data[11].temperature
+              temperature: res.data.hourly.data[11].temperature.toFixed()
             }]
           },
           dailyForecast: {
@@ -348,8 +349,8 @@ const App = () => {
               sunrise: res.data.daily.data[0].sunrise,
               sunset: res.data.daily.data[0].sunset,
               precipProbability: res.data.daily.data[0].precipProbability,
-              tempMax: res.data.daily.data[0].temperatureMax,
-              tempMin: res.data.daily.data[0].temperatureMin
+              tempMax: res.data.daily.data[0].temperatureMax.toFixed(),
+              tempMin: res.data.daily.data[0].temperatureMin.toFixed()
             },
             {
               time: moment(res.data.daily.data[1].time * 1000).format('ddd'),
@@ -358,8 +359,8 @@ const App = () => {
               sunrise: res.data.daily.data[1].sunrise,
               sunset: res.data.daily.data[1].sunset,
               precipProbability: res.data.daily.data[1].precipProbability,
-              tempMax: res.data.daily.data[1].temperatureMax,
-              tempMin: res.data.daily.data[1].temperatureMin
+              tempMax: res.data.daily.data[1].temperatureMax.toFixed(),
+              tempMin: res.data.daily.data[1].temperatureMin.toFixed()
             },
             {
               time: moment(res.data.daily.data[2].time * 1000).format('ddd'),
@@ -368,8 +369,8 @@ const App = () => {
               sunrise: res.data.daily.data[2].sunrise,
               sunset: res.data.daily.data[2].sunset,
               precipProbability: res.data.daily.data[2].precipProbability,
-              tempMax: res.data.daily.data[2].temperatureMax,
-              tempMin: res.data.daily.data[2].temperatureMin
+              tempMax: res.data.daily.data[2].temperatureMax.toFixed(),
+              tempMin: res.data.daily.data[2].temperatureMin.toFixed()
             },
             {
               time: moment(res.data.daily.data[3].time * 1000).format('ddd'),
@@ -378,8 +379,8 @@ const App = () => {
               sunrise: res.data.daily.data[3].sunrise,
               sunset: res.data.daily.data[3].sunset,
               precipProbability: res.data.daily.data[3].precipProbability,
-              tempMax: res.data.daily.data[3].temperatureMax,
-              tempMin: res.data.daily.data[3].temperatureMin
+              tempMax: res.data.daily.data[3].temperatureMax.toFixed(),
+              tempMin: res.data.daily.data[3].temperatureMin.toFixed()
             },
             {
               time: moment(res.data.daily.data[4].time * 1000).format('ddd'),
@@ -388,8 +389,8 @@ const App = () => {
               sunrise: res.data.daily.data[4].sunrise,
               sunset: res.data.daily.data[4].sunset,
               precipProbability: res.data.daily.data[4].precipProbability,
-              tempMax: res.data.daily.data[4].temperatureMax,
-              tempMin: res.data.daily.data[4].temperatureMin
+              tempMax: res.data.daily.data[4].temperatureMax.toFixed(),
+              tempMin: res.data.daily.data[4].temperatureMin.toFixed()
             },
             {
               time: moment(res.data.daily.data[5].time * 1000).format('ddd'),
@@ -398,8 +399,8 @@ const App = () => {
               sunrise: res.data.daily.data[5].sunrise,
               sunset: res.data.daily.data[5].sunset,
               precipProbability: res.data.daily.data[5].precipProbability,
-              tempMax: res.data.daily.data[5].temperatureMax,
-              tempMin: res.data.daily.data[5].temperatureMin
+              tempMax: res.data.daily.data[5].temperatureMax.toFixed(),
+              tempMin: res.data.daily.data[5].temperatureMin.toFixed()
             },
             {
               time: moment(res.data.daily.data[6].time * 1000).format('ddd'),
@@ -408,8 +409,8 @@ const App = () => {
               sunrise: res.data.daily.data[6].sunrise,
               sunset: res.data.daily.data[6].sunset,
               precipProbability: res.data.daily.data[6].precipProbability,
-              tempMax: res.data.daily.data[6].temperatureMax,
-              tempMin: res.data.daily.data[6].temperatureMin
+              tempMax: res.data.daily.data[6].temperatureMax.toFixed(),
+              tempMin: res.data.daily.data[6].temperatureMin.toFixed()
             },
             {
               time: moment(res.data.daily.data[7].time * 1000).format('ddd'),
@@ -418,8 +419,8 @@ const App = () => {
               sunrise: res.data.daily.data[7].sunrise,
               sunset: res.data.daily.data[7].sunset,
               precipProbability: res.data.daily.data[7].precipProbability,
-              tempMax: res.data.daily.data[7].temperatureMax,
-              tempMin: res.data.daily.data[7].temperatureMin
+              tempMax: res.data.daily.data[7].temperatureMax.toFixed(),
+              tempMin: res.data.daily.data[7].temperatureMin.toFixed()
             }]
           }
         })
@@ -448,7 +449,6 @@ const App = () => {
             key={data.time}
             // icon={data.icon}
             day={data.time}
-            condition={data.summary}
             maxTemp={data.tempMax}
             minTemp={data.tempMin}
           />

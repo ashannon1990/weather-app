@@ -10,7 +10,8 @@ const styles = {
     },
     iconAndContion: {
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        fontSize: 20
     },
     temps: {
         fontSize: 20
@@ -24,11 +25,7 @@ const FiveDayForecast = (props) => {
     return (
         <View style={styles.dailyForecast}>
             <View style={styles.iconAndContion}>
-                <Image
-                    style={{ width: 40, height: 40 }}
-                    source={{ uri: 'http://openweathermap.org/img/wn/' + props.icon + '@2x.png' }}
-                />
-                <Text style={styles.condition}>{props.day} - {props.condition}</Text>
+                <Text style={styles.condition}>{props.day} - </Text>
             </View>
             <Text style={styles.condition}>{props.maxTemp + '\u00B0'}/{props.minTemp + '\u00B0'}</Text>
         </View>
