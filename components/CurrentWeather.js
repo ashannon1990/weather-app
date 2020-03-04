@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, StyleSheet } from 'react-native';
 
-const styles = {
+const styles = StyleSheet.create({
     header: {
         display: 'flex',
         flexDirection: 'column',
@@ -17,7 +17,7 @@ const styles = {
         alignItems: 'center'
     },
     currentTemp: {
-        fontSize: 40
+        fontSize: 60
     },
     iconAndDescript: {
         flexDirection: 'column',
@@ -26,7 +26,7 @@ const styles = {
     wind: {
         fontSize: 25
     }
-}
+})
 
 const CurrentWeather = props => {
     return (

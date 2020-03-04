@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, StyleSheet } from 'react-native';
 
-const styles = {
-    dailyForecast: {
+const styles = StyleSheet.create({
+    daily: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -19,12 +19,12 @@ const styles = {
     condition: {
         fontSize: 20
     }
-}
+})
 
 
-const FiveDayForecast = (props) => {
+const DailyForecast = (props) => {
     return (
-        <View style={styles.dailyForecast}>
+        <View style={styles.daily}>
             <View style={styles.iconAndContion}>
                 <Text style={styles.condition}>{props.day} - </Text>
             </View>
@@ -33,4 +33,4 @@ const FiveDayForecast = (props) => {
     );
 };
 
-export default FiveDayForecast;
+export default DailyForecast;

@@ -20,7 +20,7 @@ import {
 import moment from 'moment';
 import axios from 'axios';
 
-import GetWeather from './components/GetWeather';
+// import GetWeather from './components/GetWeather';
 import DailyForecast from './components/DailyForecast'
 import CurrentWeather from './components/CurrentWeather';
 import SnarkyMessage from './components/SnarkyMessage';
@@ -343,7 +343,7 @@ const App = () => {
             summary: res.data.daily.summary,
             icon: res.data.daily.icon,
             data: [{
-              time: moment(res.data.daily.data[0].time * 1000).format('ddd'),
+              time: moment(res.data.daily.data[0].time * 1000).format('ddd, MMM Do'),
               summary: res.data.daily.data[0].summary,
               icon: res.data.daily.data[0].icon,
               sunrise: res.data.daily.data[0].sunrise,
@@ -353,7 +353,7 @@ const App = () => {
               tempMin: res.data.daily.data[0].temperatureMin.toFixed()
             },
             {
-              time: moment(res.data.daily.data[1].time * 1000).format('ddd'),
+              time: moment(res.data.daily.data[1].time * 1000).format('ddd, MMM Do'),
               summary: res.data.daily.data[1].summary,
               icon: res.data.daily.data[1].icon,
               sunrise: res.data.daily.data[1].sunrise,
@@ -363,7 +363,7 @@ const App = () => {
               tempMin: res.data.daily.data[1].temperatureMin.toFixed()
             },
             {
-              time: moment(res.data.daily.data[2].time * 1000).format('ddd'),
+              time: moment(res.data.daily.data[2].time * 1000).format('ddd, MMM Do'),
               summary: res.data.daily.data[2].summary,
               icon: res.data.daily.data[2].icon,
               sunrise: res.data.daily.data[2].sunrise,
@@ -373,7 +373,7 @@ const App = () => {
               tempMin: res.data.daily.data[2].temperatureMin.toFixed()
             },
             {
-              time: moment(res.data.daily.data[3].time * 1000).format('ddd'),
+              time: moment(res.data.daily.data[3].time * 1000).format('ddd, MMM Do'),
               summary: res.data.daily.data[3].summary,
               icon: res.data.daily.data[3].icon,
               sunrise: res.data.daily.data[3].sunrise,
@@ -383,7 +383,7 @@ const App = () => {
               tempMin: res.data.daily.data[3].temperatureMin.toFixed()
             },
             {
-              time: moment(res.data.daily.data[4].time * 1000).format('ddd'),
+              time: moment(res.data.daily.data[4].time * 1000).format('ddd, MMM Do'),
               summary: res.data.daily.data[4].summary,
               icon: res.data.daily.data[4].icon,
               sunrise: res.data.daily.data[4].sunrise,
@@ -393,7 +393,7 @@ const App = () => {
               tempMin: res.data.daily.data[4].temperatureMin.toFixed()
             },
             {
-              time: moment(res.data.daily.data[5].time * 1000).format('ddd'),
+              time: moment(res.data.daily.data[5].time * 1000).format('ddd, MMM Do'),
               summary: res.data.daily.data[5].summary,
               icon: res.data.daily.data[5].icon,
               sunrise: res.data.daily.data[5].sunrise,
@@ -403,7 +403,7 @@ const App = () => {
               tempMin: res.data.daily.data[5].temperatureMin.toFixed()
             },
             {
-              time: moment(res.data.daily.data[6].time * 1000).format('ddd'),
+              time: moment(res.data.daily.data[6].time * 1000).format('ddd, MMM Do'),
               summary: res.data.daily.data[6].summary,
               icon: res.data.daily.data[6].icon,
               sunrise: res.data.daily.data[6].sunrise,
@@ -413,7 +413,7 @@ const App = () => {
               tempMin: res.data.daily.data[6].temperatureMin.toFixed()
             },
             {
-              time: moment(res.data.daily.data[7].time * 1000).format('ddd'),
+              time: moment(res.data.daily.data[7].time * 1000).format('ddd, MMM Do'),
               summary: res.data.daily.data[7].summary,
               icon: res.data.daily.data[7].icon,
               sunrise: res.data.daily.data[7].sunrise,
@@ -434,9 +434,6 @@ const App = () => {
 
   return (
     <View style={styles.body}>
-      <GetWeather
-        clicked={getWeather}
-      />
       {/* <SnarkyMessage
         currentCondition={currentWeather.weather.main}
       /> */}
