@@ -20,9 +20,6 @@ const SnarkyMessage = (props) => {
             case 'Mist':
                 snarky = 'It\'s not that bad out I guess... not good though'
                 break;
-            case 'Squall':
-                snarky = 'WTF is a squall?'
-                break;
             case 'Tornado':
                 snarky = 'I dare you to go play outside!'
                 break;
