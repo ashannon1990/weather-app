@@ -20,13 +20,12 @@ import {
 import moment from 'moment';
 import axios from 'axios';
 
-// import GetWeather from './components/GetWeather';
 import DailyForecast from './components/DailyForecast'
 import CurrentWeather from './components/CurrentWeather';
 import SnarkyMessage from './components/SnarkyMessage';
 
 
-const apiKey = ''
+const apiKey = '';
 
 const styles = {
   body: {
@@ -434,9 +433,6 @@ const App = () => {
 
   return (
     <View style={styles.body}>
-      {/* <SnarkyMessage
-        currentCondition={currentWeather.weather.main}
-      /> */}
       <CurrentWeather
         city="Jacksonville"
         currentTemp={weather.currentWeather.temperature}
