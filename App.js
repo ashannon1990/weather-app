@@ -33,7 +33,8 @@ const styles = {
     padding: 10,
     backgroundColor: '#61dafb',
     height: '100%',
-    alignItems: 'center'
+    alignItems: 'center',
+    overflow: 'scroll'
   }
 }
 
@@ -237,7 +238,8 @@ const App = () => {
     axios.get('https://api.darksky.net/forecast/' + apiKey + '/30.332184,-81.655647?exclude=minutely') // API call to get current conditions
       .then(res => {
         console.log(res)
-        setWeather({... weather,
+        setWeather({
+          ...weather,
           currentWeather: {
             time: res.data.currently.time,
             summary: res.data.currently.summary,
@@ -433,30 +435,33 @@ const App = () => {
 
 
   return (
-    <View style={styles.body}>
-      {/* <SnarkyMessage
+    <ScrollView>
+      <View style={styles.body}>
+        {/* <SnarkyMessage
         currentCondition={currentWeather.weather.main}
       /> */}
-      <CurrentWeather
-        city="Jacksonville"
-        currentTemp={weather.currentWeather.temperature}
-        // icon={weather.currentWeather.icon}
-        summary={weather.currentWeather.summary}
-        windSpeed={weather.currentWeather.windSpeed}
-      />
-      {weather.dailyForecast.data.map((data, key) => {
-        if (data.tempMax != null) {
-        return (
-          <DailyForecast
-            key={data.time}
-            // icon={data.icon}
-            day={data.time}
-            maxTemp={data.tempMax}
-            minTemp={data.tempMin}
-          />
-        )
-      }})}
-    </ View>
+        <CurrentWeather
+          city="Jacksonville"
+          currentTemp={weather.currentWeather.temperature}
+          // icon={weather.currentWeather.icon}
+          summary={weather.currentWeather.summary}
+          windSpeed={weather.currentWeather.windSpeed}
+        />
+        {weather.dailyForecast.data.map((data, key) => {
+          if (data.tempMax != null) {
+            return (
+              <DailyForecast
+                key={data.time}
+                // icon={data.icon}
+                day={data.time}
+                maxTemp={data.tempMax}
+                minTemp={data.tempMin}
+              />
+            )
+          }
+        })}
+      </ View>
+    </ ScrollView>
   );
 };
 

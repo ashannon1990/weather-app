@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet, Dimensions } from 'react-native';
+
+let deviceHeight = Dimensions.get('window').height
 
 const styles = StyleSheet.create({
     header: {
@@ -14,7 +16,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        height: (.8 * deviceHeight)
     },
     currentTemp: {
         fontSize: 60
