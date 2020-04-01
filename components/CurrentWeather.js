@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, Image, StyleSheet, Dimensions } from 'react-native';
 
 let deviceHeight = Dimensions.get('window').height
+let deviceWidth = Dimensions.get('window').width
 
 const styles = StyleSheet.create({
     header: {
@@ -14,17 +15,16 @@ const styles = StyleSheet.create({
     },
     currentMainDiv: {
         display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        height: (.8 * deviceHeight)
+        height: (.8 * deviceHeight),
+        width: deviceWidth,
+        padding: 10,
+        justifyContent: 'space-between'
     },
     currentTemp: {
         fontSize: 60
     },
     iconAndDescript: {
-        flexDirection: 'column',
-        alignItems: 'center'
+        flexDirection: 'column'
     },
     wind: {
         fontSize: 25
@@ -35,11 +35,13 @@ const CurrentWeather = props => {
     return (
         <View>
             <View style={styles.currentMainDiv}>
+                <View>
                 <Text style={styles.currentTemp}>{props.currentTemp + '\u00B0'}</Text>
                 <View style={styles.iconAndDescript}>
                     <Text>
                         {props.summary}
                     </Text>
+                </View>
                 </View>
                 <View>
                     <Text style={styles.wind}>Wind: {props.windSpeed} mph</Text>
