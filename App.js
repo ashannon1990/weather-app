@@ -20,13 +20,12 @@ import {
 import moment from 'moment';
 import axios from 'axios';
 
-// import GetWeather from './components/GetWeather';
 import DailyForecast from './components/DailyForecast'
 import CurrentWeather from './components/CurrentWeather';
 import SnarkyMessage from './components/SnarkyMessage';
 
 
-const apiKey = ''
+const apiKey = '';
 
 const styles = {
   body: {
@@ -435,6 +434,7 @@ const App = () => {
 
 
   return (
+<<<<<<< HEAD
     <ScrollView>
       <View style={styles.body}>
         {/* <SnarkyMessage
@@ -462,6 +462,29 @@ const App = () => {
         })}
       </ View>
     </ ScrollView>
+=======
+    <View style={styles.body}>
+      <CurrentWeather
+        city="Jacksonville"
+        currentTemp={weather.currentWeather.temperature}
+        // icon={weather.currentWeather.icon}
+        summary={weather.currentWeather.summary}
+        windSpeed={weather.currentWeather.windSpeed}
+      />
+      {weather.dailyForecast.data.map((data, key) => {
+        if (data.tempMax != null) {
+        return (
+          <DailyForecast
+            key={data.time}
+            // icon={data.icon}
+            day={data.time}
+            maxTemp={data.tempMax}
+            minTemp={data.tempMin}
+          />
+        )
+      }})}
+    </ View>
+>>>>>>> 7d6aa31ca6811d515091e98d0283bd90dc0b3314
   );
 };
 
