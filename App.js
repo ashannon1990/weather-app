@@ -20,9 +20,10 @@ import {
 import moment from 'moment';
 import axios from 'axios';
 
-import DailyForecast from './components/DailyForecast'
+import DailyForecast from './components/DailyForecast';
 import CurrentWeather from './components/CurrentWeather';
-import SnarkyMessage from './components/SnarkyMessage';
+import HourlyForecast from './components/HourlyForecast';
+// import SnarkyMessage from './components/SnarkyMessage';
 
 
 const apiKey = '';
@@ -240,7 +241,7 @@ const App = () => {
         setWeather({
           ...weather,
           currentWeather: {
-            time: res.data.currently.time,
+            time: moment(res.data.currently.time),
             summary: res.data.currently.summary,
             icon: res.data.currently.icon,
             precipIntensity: res.data.currently.precipIntensity,
@@ -256,87 +257,87 @@ const App = () => {
           },
           hourlyForecast: {
             data: [{
-              time: res.data.hourly.data[0].time,
+              time: moment(res.data.hourly.data[0].time * 1000).format('LT'),
               summary: res.data.hourly.data[0].summary,
               icon: res.data.hourly.data[0].icon,
-              precipProbability: res.data.hourly.data[0].precipIntensity,
+              precipProbability: (res.data.hourly.data[0].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[0].temperature.toFixed()
             },
             {
-              time: res.data.hourly.data[1].time,
+              time: moment(res.data.hourly.data[1].time * 1000).format('LT'),
               summary: res.data.hourly.data[1].summary,
               icon: res.data.hourly.data[1].icon,
-              precipProbability: res.data.hourly.data[1].precipIntensity,
+              precipProbability: (res.data.hourly.data[1].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[1].temperature.toFixed()
             },
             {
-              time: res.data.hourly.data[2].time,
+              time: moment(res.data.hourly.data[2].time * 1000).format('LT'),
               summary: res.data.hourly.data[2].summary,
               icon: res.data.hourly.data[2].icon,
-              precipProbability: res.data.hourly.data[2].precipIntensity,
+              precipProbability: (res.data.hourly.data[2].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[2].temperature.toFixed()
             },
             {
-              time: res.data.hourly.data[3].time,
+              time: moment(res.data.hourly.data[3].time * 1000).format('LT'),
               summary: res.data.hourly.data[3].summary,
               icon: res.data.hourly.data[3].icon,
-              precipProbability: res.data.hourly.data[3].precipIntensity,
+              precipProbability: (res.data.hourly.data[3].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[3].temperature.toFixed()
             },
             {
-              time: res.data.hourly.data[4].time,
+              time: moment(res.data.hourly.data[4].time * 1000).format('LT'),
               summary: res.data.hourly.data[4].summary,
               icon: res.data.hourly.data[4].icon,
-              precipProbability: res.data.hourly.data[4].precipIntensity,
+              precipProbability: (res.data.hourly.data[4].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[4].temperature.toFixed()
             },
             {
-              time: res.data.hourly.data[5].time,
+              time: moment(res.data.hourly.data[5].time * 1000).format('LT'),
               summary: res.data.hourly.data[5].summary,
               icon: res.data.hourly.data[5].icon,
-              precipProbability: res.data.hourly.data[5].precipIntensity,
+              precipProbability: (res.data.hourly.data[5].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[5].temperature.toFixed()
             },
             {
-              time: res.data.hourly.data[6].time,
+              time: moment(res.data.hourly.data[6].time * 1000).format('LT'),
               summary: res.data.hourly.data[6].summary,
               icon: res.data.hourly.data[6].icon,
-              precipProbability: res.data.hourly.data[6].precipIntensity,
+              precipProbability: (res.data.hourly.data[6].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[6].temperature.toFixed()
             },
             {
-              time: res.data.hourly.data[7].time,
+              time: moment(res.data.hourly.data[7].time * 1000).format('LT'),
               summary: res.data.hourly.data[7].summary,
               icon: res.data.hourly.data[7].icon,
-              precipProbability: res.data.hourly.data[7].precipIntensity,
+              precipProbability: (res.data.hourly.data[7].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[7].temperature.toFixed()
             },
             {
-              time: res.data.hourly.data[8].time,
+              time: moment(res.data.hourly.data[8].time * 1000).format('LT'),
               summary: res.data.hourly.data[8].summary,
               icon: res.data.hourly.data[8].icon,
-              precipProbability: res.data.hourly.data[8].precipIntensity,
+              precipProbability: (res.data.hourly.data[8].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[8].temperature.toFixed()
             },
             {
-              time: res.data.hourly.data[9].time,
+              time: moment(res.data.hourly.data[9].time * 1000).format('LT'),
               summary: res.data.hourly.data[9].summary,
               icon: res.data.hourly.data[9].icon,
-              precipProbability: res.data.hourly.data[9].precipIntensity,
+              precipProbability: (res.data.hourly.data[9].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[9].temperature.toFixed()
             },
             {
-              time: res.data.hourly.data[10].time,
+              time: moment(res.data.hourly.data[10].time * 1000).format('LT'),
               summary: res.data.hourly.data[10].summary,
               icon: res.data.hourly.data[10].icon,
-              precipProbability: res.data.hourly.data[10].precipIntensity,
+              precipProbability: (res.data.hourly.data[10].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[10].temperature.toFixed()
             },
             {
-              time: res.data.hourly.data[11].time,
+              time: moment(res.data.hourly.data[11].time * 1000).format('LT'),
               summary: res.data.hourly.data[11].summary,
               icon: res.data.hourly.data[11].icon,
-              precipProbability: res.data.hourly.data[11].precipIntensity,
+              precipProbability: (res.data.hourly.data[11].precipProbability * 100).toFixed(),
               temperature: res.data.hourly.data[11].temperature.toFixed()
             }]
           },
@@ -434,7 +435,6 @@ const App = () => {
 
 
   return (
-<<<<<<< HEAD
     <ScrollView>
       <View style={styles.body}>
         {/* <SnarkyMessage
@@ -460,31 +460,21 @@ const App = () => {
             )
           }
         })}
+        {weather.hourlyForecast.data.map((data, key) => {
+          if (data.temperature != null) {
+            return (
+              <HourlyForecast
+                key={data.time}
+                // icon={data.icon}
+                time={data.time}
+                temp={data.temperature}
+                precip={data.precipProbability}
+              />
+            )
+          }
+        })}
       </ View>
     </ ScrollView>
-=======
-    <View style={styles.body}>
-      <CurrentWeather
-        city="Jacksonville"
-        currentTemp={weather.currentWeather.temperature}
-        // icon={weather.currentWeather.icon}
-        summary={weather.currentWeather.summary}
-        windSpeed={weather.currentWeather.windSpeed}
-      />
-      {weather.dailyForecast.data.map((data, key) => {
-        if (data.tempMax != null) {
-        return (
-          <DailyForecast
-            key={data.time}
-            // icon={data.icon}
-            day={data.time}
-            maxTemp={data.tempMax}
-            minTemp={data.tempMin}
-          />
-        )
-      }})}
-    </ View>
->>>>>>> 7d6aa31ca6811d515091e98d0283bd90dc0b3314
   );
 };
 

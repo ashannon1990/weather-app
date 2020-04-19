@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
         height: (.8 * deviceHeight),
         width: deviceWidth,
         padding: 10,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        marginBottom: 15
     },
     currentTemp: {
         fontSize: 60
